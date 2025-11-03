@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<style>
+  body { 
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    text-align: center; 
+    background: linear-gradient(to bottom, #ffe6f0, #ffb3d9);
+    color: #800040; 
+    margin: 0; 
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .page { display: none; padding: 20px; height: 100vh; box-sizing: border-box; position: relative; }
+  .active { display: block; animation: fadeIn 1s; }
+
+  @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+
+  button { 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    margin: 10px 5px; 
+    background: #ff69b4; 
+    color: white; 
+    border: none; 
+    border-radius: 15px; 
+    cursor: pointer; 
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  }
+
+  .message { 
+    font-size: 20px; 
+    line-height: 1.6; 
+    color: #800040; 
+    margin-top: 20px; 
+    text-align: center;
+  }
+
+  /* Floating hearts & kisses animation */
+  .floating {
+    position: absolute;
+    font-size: 30px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+  }
+
+  /* GIF styling */
+  .gif { max-width: 80%; border-radius: 15px; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<!-- Floating hearts & kisses emojis -->
+<div class="floating" style="left:10%; animation-duration:6s;">💖</div>
+<div class="floating" style="left:20%; animation-duration:5s;">😘</div>
+<div class="floating" style="left:35%; animation-duration:7s;">💋</div>
+<div class="floating" style="left:50%; animation-duration:6.5s;">❤️</div>
+<div class="floating" style="left:65%; animation-duration:5.5s;">💖</div>
+<div class="floating" style="left:80%; animation-duration:7s;">💋</div>
+
+<!-- Page 1: Surprise + GIF -->
+<div class="page active" id="page1">
+  <h1>🎉 Surprise! 🎉</h1>
+  <p>Guess who's turning 30? 😋💖💋</p>
+  <img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Funny GIF">
+  <br>
+  <button onclick="prevPage()">Previous</button>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 2: Birthday message -->
+<div class="page" id="page2">
+  <h1>Happy 30th Birthday, 💌</h1>
+  <p class="message">
+    My Dearest Baby, <br><br>
+    Wow.... 30! Can you believe it? You're officially in a grown and sexy club now 😋 but dw you still act like a pagal sometimes and I love that about you 😁.<br><br>
+    Thirty looks so good on you not just because of your smile, but because of the beautiful heart behind.<br><br>
+    I’m so proud of you for who you are, how you love, and how you make me feel safe and cherished every day.<br><br>
+    Thank you for being my calm, my laughter, my everything. I love you endlessly baby not just today but everyday in everyway . i hope next year brings you everything your heart dreams of ..and a little more of me in it ..❤️and I can’t wait to celebrate every year of your life by your side.<br><br>
+    Happy birthday, my forever baby 💞<br>
+    Your girl 💋
+  </p>
+  <button onclick="prevPage()">Previous</button>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 3: Song dedication -->
+<div class="page" id="page3">
+  <h1>Dedicating to my man 🎶💖</h1>
+  <p> ❤️💋</p>
+  <audio controls autoplay>
+    <source src="https://s3.eu-central-1.wasabisys.com/audio.com.audio/transcoding/04/82/1773854073188204-1773854074362393-1773854077603683.mp3?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=W7IA3NSYSOQIKLY9DEVC%2F20251102%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20251102T153706Z&X-Amz-SignedHeaders=host&X-Amz-Expires=518400&X-Amz-Signature=a0ee8fbd3145da0360ad923dce7c41f1c5b35cb9d1cb9ad22bc219119918bfa2" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <br>
+  <button onclick="prevPage()">Previous</button>
+</div>
+
+<script>
+  let currentPage = 1;
+  const totalPages = 3;
+
+  function nextPage() {
+    if(currentPage < totalPages){
+      document.getElementById('page'+currentPage).classList.remove('active');
+      currentPage++;
+      document.getElementById('page'+currentPage).classList.add('active');
+    }
+  }
+
+  function prevPage() {
+    if(currentPage > 1){
+      document.getElementById('page'+currentPage).classList.remove('active');
+      currentPage--;
+      document.getElementById('page'+currentPage).classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>
